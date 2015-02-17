@@ -13,6 +13,7 @@ gem 'carrierwave', '0.10.0'
 gem 'mini_magick','3.8.0'
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'angularjs-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -50,6 +51,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
 
 
 
