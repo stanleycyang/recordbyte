@@ -6,7 +6,8 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "bootstrap-sass-official": "latest"
+      "bootstrap-sass": "latest",
+      "angular-ui-router": "latest"
     }
   }
 }
