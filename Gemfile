@@ -31,6 +31,7 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 
 group :development, :test do
+  gem 'faker'
   gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails'

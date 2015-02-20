@@ -76,7 +76,22 @@ $main-font: 'Raleway', sans-serif;
   overflow-x: hidden;
 }
 
+// Glyphs
 
+.glyphicon-book
+{
+  color: #23527c;
+}
+
+.glyphicon-align-left
+{
+  color: #DF7401;
+}
+
+.glyphicon-heart
+{
+  color: #DF0101;
+}
 
 // <=== Mixins ===>
 
@@ -89,6 +104,12 @@ html, body
 {
   @extend .max-page;
   background-color: $background-color;
+  font-family: $main-font;
+}
+
+a
+{
+  cursor: pointer;
 }
 
 // Header & Footer
@@ -96,3 +117,14 @@ header, footer
 {
   @extend .top-layer;
 }
+
+// <=== Ids ===>
+
+#home-carousel
+{
+  .glyphicon
+  {
+    font-size: 14em;
+  }
+}
+

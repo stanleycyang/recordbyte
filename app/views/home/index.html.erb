@@ -1,3 +1,5 @@
+<%= render 'shared/login' %>
+
 <div class="row">
 
   <!-- Being left section -->
@@ -9,7 +11,7 @@
 
     <p class="description">The most engaging way to stay well-read. Get a book recommendation every week starting today. It's 100% free and will always be.</p>
 
-    <button class="btn-lg" data-toggle="modal" data-target="#signup">Sign up now</button>
+    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-default" %>
 
     <a href="/#/about" class="learn-more">Learn more</a>
 
