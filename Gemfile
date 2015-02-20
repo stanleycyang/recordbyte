@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'better_errors'
+  gem 'guard'
   gem 'quiet_assets'
   gem 'capybara'
   gem 'pry'

@@ -5,12 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-  {{3 + 4}} 
+  <%= render "shared/header" %>
+  <%= render "shared/sidenav" %>
 
-<%= yield %>
+  <div class="container-fluid">
+
+    <%= yield %>
+
+  </div>
+
+  <%= render "shared/footer" %>
 
 </body>
 </html>

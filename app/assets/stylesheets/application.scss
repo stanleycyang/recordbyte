@@ -17,3 +17,82 @@
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+// <=== Variables ===>
+
+// Color scheme
+$background-color: #f0f0f0;
+$theme-color: #72d0f4;
+$font-black-color: #2E2E2E;
+$font-gray-color: #777;
+
+// Font stack
+$main-font: 'Raleway', sans-serif;
+
+// <=== Classes ===>
+
+// Layers
+
+.top-layer
+{
+  z-index: 10;
+}
+
+.mid-layer
+{
+  z-index: 5;
+}
+
+// Box model
+
+.no-margin
+{
+  margin: 0;
+}
+
+.no-padding
+{
+  padding: 0;
+}
+
+// Width + Height
+
+.max-width
+{
+  width: 100%;
+}
+
+.max-height
+{
+  min-height: 100%;
+}
+
+.max-page
+{
+  @extend .no-margin;
+  @extend .no-padding;
+  @extend .max-height;
+  @extend .max-width;
+  overflow-x: hidden;
+}
+
+
+
+// <=== Mixins ===>
+
+
+
+// <===  Elements ===>
+
+// html and body
+html, body
+{
+  @extend .max-page;
+  background-color: $background-color;
+}
+
+// Header & Footer
+header, footer
+{
+  @extend .top-layer;
+}
