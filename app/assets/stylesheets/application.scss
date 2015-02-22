@@ -29,6 +29,9 @@ $font-gray-color: #777;
 // Font stack
 $main-font: 'Raleway', sans-serif;
 
+// Header
+$header-height: 80px;
+
 // <=== Classes ===>
 
 // Layers
@@ -102,29 +105,106 @@ $main-font: 'Raleway', sans-serif;
 // html and body
 html, body
 {
-  @extend .max-page;
   background-color: $background-color;
   font-family: $main-font;
+  @extend .max-page;
 }
 
 a
 {
   cursor: pointer;
+  &:hover
+  {
+    text-decoration: none;
+  }
 }
 
 // Header & Footer
 header, footer
 {
+  position: fixed;
+  left: 0;
   @extend .top-layer;
+  @extend .max-width;
+  @extend .no-padding;
+  @extend .no-margin;
+}
+
+header
+{
+  height: $header-height;
+  top: 0;
+  background-color: transparent;
+  color: $font-black-color;
+
+  a
+  {
+    color: $font-black-color;
+    position: absolute;
+    &:nth-child(2)
+    {
+      right: 100px;
+      top: 17px;
+      font-size: 1.2em;
+    }
+  }
+
+
+  .glyphicon-bookmark
+  {
+    margin-left: 15px;
+    font-size: 1.5em;
+    top: 18px;
+  }
+
+  .glyphicon-menu-hamburger
+  {
+    position: absolute;
+    font-size: 1.5em;
+    right: 45px;
+    top: 20px;
+  }
+
+}
+
+footer
+{
+  bottom: 0; 
+  height: 50px;
 }
 
 // <=== Ids ===>
 
-#home-carousel
+div#intro
 {
-  .glyphicon
+  h1
   {
-    font-size: 14em;
+    font-size: 64px;
+    font-weight: 100;
+  }
+  #top-title
+  {
+    margin-top: 130px;
+  }
+  .description
+  {
+    color: $font-gray-color;
+    line-height: 1.6em;
+    font-size: 1.1em;
+    margin: 42px 0;
+  }
+  .learn-more
+  {
+    margin-left: 20px;
   }
 }
 
+#home-carousel
+{
+  padding: 160px 0 65px 0;
+  .glyphicon
+  {
+    font-size: 16em;
+    margin-bottom: 55px;
+  }
+}
