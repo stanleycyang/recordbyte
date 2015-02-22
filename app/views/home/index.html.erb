@@ -1,5 +1,4 @@
-<%= render 'shared/login' %>
-
+<%= provide(:title, "Recordbyte") %>
 <div class="row" id="intro">
 
   <!-- Being left section -->
@@ -17,7 +16,7 @@
   </section>
 
   <!-- Being right section -->
-  <section class="col-sm-6">
+  <section class="col-sm-6 hidden-sm hidden-xs">
 
   <div id="home-carousel" class="carousel slide" data-ride="carousel">
 
@@ -34,19 +33,19 @@
 
         <!-- Active items -->
         <div class="item active text-center">
-          <span class="glyphicon glyphicon-book"></span>
+          <a href="/signup" class="glyphicon glyphicon-book"></a>
           <p class="caption">Get a book recommendation weekly</p>
         </div>
 
         <!-- Second item -->
         <div class="item text-center">
-          <span class="glyphicon glyphicon-align-left"></span>
+          <a href="/signup" class="glyphicon glyphicon-align-left"></a>
           <p class="caption">Browse our top book recommendations</p>
         </div>
 
         <!-- Third item -->
         <div class="item text-center">
-          <span class="glyphicon glyphicon-heart"></span>
+          <a href="/signup" class="glyphicon glyphicon-heart"></a>
           <p class="caption">Love books? Recommend books!</p>
         </div>
 

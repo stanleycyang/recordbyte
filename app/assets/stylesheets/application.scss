@@ -166,10 +166,24 @@ header
   }
 
 }
+nav.slidemenu
+{
+  background-color: $font-black-color;
+  position: absolute;
+  width: 0px;
+  right: 0;
+  top: 0;
+  transition: width .5s ease;
+  @extend .max-height;
+}
+.slidemenu-out
+{
+  width: 250px;
+}
 
 footer
 {
-  bottom: 0; 
+  bottom: 0;
   height: 50px;
 }
 
@@ -204,7 +218,12 @@ div#intro
   padding: 160px 0 65px 0;
   .glyphicon
   {
-    font-size: 16em;
+    font-size: 15em;
     margin-bottom: 55px;
   }
+}
+
+#signup
+{
+  margin-top: 120px;
 }

@@ -1,0 +1,19 @@
+<%= provide(:title, "Sign up") %>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4" id="signup">
+    <%= render 'shared/flash' %>
+    <h2>Sign up today</h2>
+    <br />
+    <%= form_for @user do |f| %>
+      <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "Name" %>
+      <br />
+      <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+      <br />
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      <br />
+      <b><%= f.submit "Create my account", class: "form-control btn-success" %></b>
+      <br />
+    <% end %>
+    <small><abbr title="Note" class="initialism">Note:</abbr>  We will never sell your personal information to third-party vendors.</small>
+  </div>
+</div>
