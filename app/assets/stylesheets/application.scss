@@ -21,7 +21,8 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 // <=== Variables ===>
 
 // Color scheme
-$background-color: #f0f0f0;
+//$background-color: #f0f0f0;
+$background-color: #FBFBEF;
 $theme-color: #72d0f4;
 $font-black-color: #2E2E2E;
 $font-gray-color: #777;
@@ -77,6 +78,12 @@ $header-height: 80px;
   @extend .max-height;
   @extend .max-width;
   overflow-x: hidden;
+}
+
+// Login remember me
+.checkbox
+{
+  margin-left: 22px;
 }
 
 // Glyphs
