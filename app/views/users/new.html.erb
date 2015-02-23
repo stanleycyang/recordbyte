@@ -1,6 +1,6 @@
 <%= provide(:title, "Sign up") %>
 <div class="row">
-  <div class="col-md-offset-4 col-md-4" id="signup">
+  <div class="col-md-offset-4 col-md-4 entry-form">
     <%= render 'shared/flash' %>
     <h2>Sign up today</h2>
     <br />
@@ -14,6 +14,6 @@
       <strong><%= f.submit "Create my account", class: "form-control btn-success" %></strong>
       <br />
     <% end %>
-    <small><abbr title="Note" class="initialism">Note:</abbr> By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</small>
+    <small>By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</small>
   </div>
 </div>

@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to home_path
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to signup_path
+      flash[:danger] = 'Invalid email/password combination'
+      redirect_to login_path
     end
   end
 
