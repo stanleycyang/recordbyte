@@ -109,6 +109,13 @@ $header-height: 80px;
   color: #DF0101;
 }
 
+// Animations
+
+.pushed
+{
+  left: -250px;
+}
+
 // <=== Mixins ===>
 
 
@@ -121,6 +128,13 @@ html, body
   background-color: $background-color;
   font-family: $main-font;
   @extend .max-page;
+}
+
+body
+{
+  position: relative;
+  left: 0;
+  transition: left .5s ease;
 }
 
 a
@@ -137,6 +151,7 @@ header, footer
 {
   position: fixed;
   left: 0;
+  transition: left .5s ease;
   @extend .top-layer;
   @extend .max-width;
   @extend .no-padding;
@@ -179,15 +194,16 @@ header
   }
 
 }
-nav.slidemenu
+.slidemenu
 {
   background-color: $font-black-color;
-  position: absolute;
+  position: fixed;
   width: 0px;
   right: 0;
   top: 0;
   transition: width .5s ease;
   @extend .max-height;
+  @extend .top-layer;
 }
 .slidemenu-out
 {

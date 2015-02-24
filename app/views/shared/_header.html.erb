@@ -2,10 +2,14 @@
 
 <%= render 'shared/login' %>
 
-<header class="row">
+<header class="row" ng-class="{'pushed': main.pushmenu}">
   <div class="col-sm-offset-1 col-sm-11">
     <a href="/" class="glyphicon glyphicon-bookmark"></a>
-    <a data-toggle="modal" data-target="#login">Login</a>
-    <a id="hamburger" class="glyphicon glyphicon-menu-hamburger"></a>
+    <% if logged_in? %>
+      <%= link_to current_user.name, "/#/users/#{current_user.id}", class: 'hidden-xs' %>
+    <% else %>
+      <a data-toggle="modal" data-target="#login">Login</a>
+    <% end %>
+    <a id="hamburger" class="glyphicon glyphicon-menu-hamburger" ng-click="main.pushmenu = !main.pushmenu"></a>
   </div>
 </header>

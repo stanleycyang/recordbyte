@@ -14,6 +14,6 @@
       <strong><%= f.submit "Create my account", class: "form-control btn-success" %></strong>
       <br />
     <% end %>
-    <small>By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</small>
+    <small>By signing up, you agree to our <%= link_to "Terms of Use", terms_path %> and <%= link_to "Privacy Policy", privacy_path %>.</small>
   </div>
 </div>

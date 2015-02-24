@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :return_home, only: :new
+
   def show
     User.find(params[:id])
   end

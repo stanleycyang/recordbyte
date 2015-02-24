@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app='app'>
 <head>
-  <title><%= yield(:title) %></title>
+  <% if logged_in? %>
+    <title ng-bind="title"></title>
+  <% else %>
+    <title><%= yield(:title) %></title>
+  <% end %>
+
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body ng-class="{'pushed': main.pushmenu}">
 
   <%= render "shared/header" %>
   <%= render "shared/sidenav" %>
 
-  <div class="container-fluid">
+  <div class="container-fluid" ng-click="main.pushmenu = false">
 
     <%= yield %>
 

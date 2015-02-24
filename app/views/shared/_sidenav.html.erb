@@ -1,6 +1,11 @@
 <!-- SIDENAV partial -->
 
-<nav class="slidemenu">
-sdsd
+<nav class="slidemenu" ng-class="{'slidemenu-out': main.pushmenu}">
+
+  <% if logged_in? %>
+    <%= link_to "Log out", logout_path, method: "delete" %>
+  <% else %>
+
+  <% end %>
 
 </nav>

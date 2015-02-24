@@ -3,7 +3,7 @@ angular
   .module 'app',
     [
       'templates'
-      'angular-ui-router'
+      'ui.router'
       'ngResource'
     ]
 

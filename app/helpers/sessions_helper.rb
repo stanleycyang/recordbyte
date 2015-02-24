@@ -35,9 +35,24 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # Destroy the session
   def log_out
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in!"
+      redirect_to login_url
+    end
+  end
+
+  def return_home
+    if logged_in?
+      redirect_to home_url
+    end
+  end
+
 end

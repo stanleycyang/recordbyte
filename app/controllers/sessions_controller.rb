@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :return_home, only: :new
+
   def new
   end
 

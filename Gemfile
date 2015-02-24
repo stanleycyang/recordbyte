@@ -13,7 +13,6 @@ gem 'carrierwave', '0.10.0'
 gem 'mini_magick','3.8.0'
 gem 'figaro'
 gem 'font-awesome-rails'
-gem 'angularjs-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -28,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bower-rails'
 
 # Angular dependencies
+gem 'angularjs-rails'
 gem 'angular-rails-templates'
 
 group :development, :test do

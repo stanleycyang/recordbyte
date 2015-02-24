@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+  has_one :api_key, dependent: :destroy
 
   attr_accessor :remember_token
 
   before_save :downcase_email
+  before_create :create_api_key
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: {case_sensitive: false}, length: {maximum: 255}
@@ -44,6 +46,10 @@ class User < ActiveRecord::Base
 
     def downcase_email
       self.email.downcase
+    end
+
+    def create_api_key
+      self.api_key = APIKey.create
     end
 
 end
