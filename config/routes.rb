@@ -18,4 +18,12 @@ Rails.application.routes.draw do
 
   # Users
   resources :users, except: :new
+  resources :account_activations, only: [:edit]
+
+  # API Layer
+  namespace :api, defaults: {format: :json}, constraints: {subdomain: 'api'}, path: '/' do
+      # Token Authenthentication
+      post '/authenticate' => 'authentication#sign_in'
+  end
+
 end
