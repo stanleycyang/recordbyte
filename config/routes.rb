@@ -18,7 +18,10 @@ Rails.application.routes.draw do
 
   # Users
   resources :users, except: :new
+  # Account activation
   resources :account_activations, only: [:edit]
+  # Password resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # API Layer
   namespace :api, defaults: {format: :json}, constraints: {subdomain: 'api'}, path: '/' do
