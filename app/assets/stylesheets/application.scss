@@ -140,7 +140,7 @@ body
 a
 {
   cursor: pointer;
-  &:hover
+  &:hover, &:visited, &:active, &:link
   {
     text-decoration: none;
   }
@@ -201,13 +201,46 @@ header
   width: 0px;
   right: 0;
   top: 0;
-  transition: width .5s ease;
+  font-size: 0;
+  transition: width .5s, font .5s ease;
   @extend .max-height;
   @extend .top-layer;
+  ul
+  {
+    list-style-type: none;
+    @extend .no-padding;
+    li
+    {
+      padding: 0;
+      a
+      {
+        display: block;
+        width: 100%;
+        font-weight: bold;
+        padding: 15px 0;
+        color: #E6E6E6;
+        border-bottom: 1px solid black;
+        &:hover
+        {
+          background-color: black;
+        }
+        span.glyphicon
+        {
+          font-size: 0.8em;
+          margin-right: 8px;
+        }
+      }
+      #first-item
+      {
+        border-top: 1px solid black;
+      }
+    }
+  }
 }
 .slidemenu-out
 {
   width: 250px;
+  font-size: 1.5em;
 }
 
 footer
@@ -252,4 +285,7 @@ div#intro
   }
 }
 
-
+#main-route-container
+{
+  @extend .max-page;
+}

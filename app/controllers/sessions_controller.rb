@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_to home_path
+        redirect_to "#{home_path}/"
       else
         message = "Your account is not activated! Check your email"
         flash[:danger] = message

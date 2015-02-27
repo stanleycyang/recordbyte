@@ -18,5 +18,6 @@
 //= require angular-rails-templates
 //= require angular-animate
 //= require angular-resource
+//= require config/module
 //= require_tree .
 //= require_tree ./templates

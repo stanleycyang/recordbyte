@@ -2,10 +2,46 @@
 
 <nav class="slidemenu" ng-class="{'slidemenu-out': main.pushmenu}">
 
-  <% if logged_in? %>
-    <%= link_to "Log out", logout_path, method: "delete" %>
-  <% else %>
+  <ul class="text-center">
 
-  <% end %>
+    <% if logged_in? %>
+      <li><a href="#/" id="first-item"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li><a href="#/users/<%= current_user.id %>"><span class="glyphicon glyphicon-user"></span><%= current_user.name %></a></li>
+      <li><a href="#/settings"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+      <li>
+        <%= link_to logout_path, method: "delete" do %>
+          <span class="glyphicon glyphicon-log-out"></span>
+          <span>Logout</span>
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to root_path do %>
+          <span class="glyphicon glyphicon-home"></span>
+          Home
+        <% end %>
+      </li>
+      <li>
+        <%= link_to signup_path do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Sign up
+        <% end %>
+      </li>
+      <li>
+        <%= link_to login_path do %>
+          <span class="glyphicon glyphicon-log-in"></span>
+          Log in
+        <% end %>
+      </li>
+      <li>
+      <%= link_to about_path do %>
+        <span class="glyphicon glyphicon-info-sign"></span>
+        About us
+      <% end %>
+      </li>
+
+    <% end %>
+
+  </ul>
 
 </nav>

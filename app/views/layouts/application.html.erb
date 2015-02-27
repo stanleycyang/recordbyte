@@ -13,7 +13,7 @@
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 </head>
-<body ng-class="{'pushed': main.pushmenu}">
+<body ng-controller="MainController as main" ng-class="{'pushed': main.pushmenu}">
 
   <%= render "shared/header" %>
   <%= render "shared/sidenav" %>

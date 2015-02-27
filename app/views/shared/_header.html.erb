@@ -4,10 +4,14 @@
 
 <header class="row" ng-class="{'pushed': main.pushmenu}">
   <div class="col-sm-offset-1 col-sm-11">
-    <a href="/" class="glyphicon glyphicon-bookmark"></a>
     <% if logged_in? %>
-      <%= link_to current_user.name, "/#/users/#{current_user.id}", class: 'hidden-xs' %>
+      <a href="/home/#/" class="glyphicon glyphicon-bookmark"></a>
+      <%= link_to current_user.name, "#/users/#{current_user.id}", class: 'hidden-xs' %>
+      <!--
+         -<a class="glyphicon glyphicon-edit"><a>
+         -->
     <% else %>
+      <a href="/" class="glyphicon glyphicon-bookmark"></a>
       <a data-toggle="modal" data-target="#login">Login</a>
     <% end %>
     <a id="hamburger" class="glyphicon glyphicon-menu-hamburger" ng-click="main.pushmenu = !main.pushmenu"></a>
