@@ -202,6 +202,7 @@ header
   right: 0;
   top: 0;
   font-size: 0;
+  font-weight: 100;
   transition: width .5s, font .5s ease;
   @extend .max-height;
   @extend .top-layer;
@@ -216,7 +217,6 @@ header
       {
         display: block;
         width: 100%;
-        font-weight: bold;
         padding: 15px 0;
         color: #E6E6E6;
         border-bottom: 1px solid black;

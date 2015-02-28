@@ -11,8 +11,21 @@ class config
           templateUrl: 'home.html'
       .state 'profile',
           url: '/users/:id'
-          title: 'Profile'
           templateUrl: 'profile.html'
+          controller: 'UsersController'
+          controllerAs: 'user'
+      .state 'settings',
+          url: '/settings'
+          title: 'Edit user'
+          templateUrl: 'settings.html'
+          controller: 'UsersController'
+          controllerAs: 'user'
+      .state 'post',
+          url: '/post'
+          title: 'Create a book review'
+          templateUrl: 'post.html'
+          controller: 'PostsController'
+          controllerAs: 'post'
 
 # When the state changes, change the title
 class run
