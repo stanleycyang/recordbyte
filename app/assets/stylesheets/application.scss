@@ -80,6 +80,16 @@ $header-height: 80px;
   overflow-x: hidden;
 }
 
+// Book results
+.book-results
+{
+  background-color: #fff;
+  position: relative;
+  min-height: 45px;
+  box-shadow: 2px 2px 5px 0px #ccc;
+  @extend .max-width;
+}
+
 // Form for login and signup
 .entry-form
 {
@@ -144,6 +154,12 @@ a
   {
     text-decoration: none;
   }
+}
+
+// Take out the resize in textarea
+textarea
+{
+  resize: none;
 }
 
 // Header & Footer
@@ -289,4 +305,34 @@ div#intro
 #main-route-container
 {
   @extend .max-page;
+}
+
+#book-review
+{
+  margin-top: 90px;
+  input
+  {
+    height: 40px;
+  }
+  textarea
+  {
+    height: 90px;
+  }
+  .glyphicon-star-empty
+  {
+    font-size: 2.8em;
+    color: #D8D8D8;
+  }
+  .glyphicon-star
+  {
+    font-size: 2.8em;
+    color: #FFBF00;
+  }
+  .score
+  {
+    font-size: 1.6em;
+    position: relative;
+    top: -8px;
+    left: 10px;
+  }
 }

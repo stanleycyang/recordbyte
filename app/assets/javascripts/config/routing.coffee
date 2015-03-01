@@ -15,14 +15,14 @@ class config
           controller: 'UsersController'
           controllerAs: 'user'
       .state 'settings',
-          url: '/settings/:id'
+          url: '/settings'
           title: 'Edit user'
           templateUrl: 'settings.html'
           controller: 'UsersController'
           controllerAs: 'user'
       .state 'post',
           url: '/post'
-          title: 'Create a book review'
+          title: 'Write a book review'
           templateUrl: 'post.html'
           controller: 'PostsController'
           controllerAs: 'post'

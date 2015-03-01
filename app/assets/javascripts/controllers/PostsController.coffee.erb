@@ -1,5 +1,21 @@
-PostsController = ()->
-  self = @
+class PostsController
+  constructor: ($http)->
+    self = @
+
+    # Define rating
+    self.rate = 1
+    self.max = 5
+    self.isReadonly = false
+
+    self.scoreMessage = (number)->
+      if self.rate is number
+        return true
+      else
+        return false
+
+    self.hoveringOver = (value)->
+      self.overStar = value
+      self.percent = 100 * (value / self.max)
 
 angular
   .module 'app'

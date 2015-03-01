@@ -29,6 +29,7 @@ gem 'bower-rails'
 # Angular dependencies
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'angular-ui-bootstrap-rails'
 
 group :development, :test do
   gem 'faker'
