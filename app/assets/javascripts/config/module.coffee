@@ -5,5 +5,6 @@ angular
       'templates'
       'ui.router'
       'ngResource'
+      'ipCookie'
     ]
 

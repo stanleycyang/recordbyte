@@ -1,0 +1,22 @@
+class AuthenticationController
+  constructor: ($http, ipCookie)->
+    # Capture variable
+    self = @
+
+    setCookie = (token)->
+      ipCookie 'token', token, {expires: 30}
+
+    self.removeCookie = ->
+      ipCookie.remove 'token'
+
+    # Set the cookie in the page
+    self.cookie = (token)->
+      # Check if the id exists (rails session still lives)
+      if token
+        setCookie token
+      else
+        self.removeCookie()
+
+angular
+  .module 'app'
+  .controller 'AuthenticationController', AuthenticationController

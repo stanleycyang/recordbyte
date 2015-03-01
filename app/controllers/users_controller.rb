@@ -14,9 +14,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      log_in @user
       flash[:success] = "Thanks for registering! Please check your email to activate your account"
-      redirect_to "#{home_path}/"
+      redirect_to login_path
     else
       flash[:danger] = "Invalid registration"
       redirect_to signup_path

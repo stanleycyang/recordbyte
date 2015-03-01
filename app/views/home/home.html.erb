@@ -1,7 +1,10 @@
 <% provide(:title, "Recordbyte") %>
 <%= render 'shared/flash' %>
 
+<div ng-controller="AuthenticationController as auth">
 
-<div id="main-route-container" ui-view>
+  <div id="main-route-container" ng-init="auth.cookie('<%= current_user.api_key.access_token %>')" ui-view>
+
+  </div>
 
 </div>

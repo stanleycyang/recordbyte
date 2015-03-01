@@ -2,8 +2,11 @@ class CreateBooks < ActiveRecord::Migration
   def change
     create_table :books do |t|
       t.string :title
-      t.references :user, index: true
-      t.string :review
+      t.string :author
+      t.decimal :isbn13
+      t.date :published_date
+      t.string :thumbnail
+      t.text :description
 
       t.timestamps
     end

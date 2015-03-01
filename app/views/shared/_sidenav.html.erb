@@ -2,13 +2,14 @@
 
 <nav class="slidemenu" ng-class="{'slidemenu-out': main.pushmenu}">
 
-  <ul class="text-center">
+  <ul class="text-center" ng-controller="AuthenticationController as auth">
 
     <% if logged_in? %>
       <li><a href="#/" id="first-item"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li><a href="#/post"><span class="glyphicon glyphicon-book"></span>Write a review</a></li>
       <li><a href="#/users/<%= current_user.id %>"><span class="glyphicon glyphicon-user"></span><%= current_user.name %></a></li>
-      <li><a href="#/settings"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
-      <li>
+      <li><a href="#/settings/<%= current_user.id %>"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+      <li ng-click="auth.removeCookie()">
         <%= link_to logout_path, method: "delete" do %>
           <span class="glyphicon glyphicon-log-out"></span>
           <span>Logout</span>

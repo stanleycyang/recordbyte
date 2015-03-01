@@ -1,20 +1,14 @@
-MainController = ($http)->
+class MainController
+  constructor: ($http)->
 
-  # Capture variable
-  self = @
+    self = @
 
-  GoogleBooks = ->
-    books = $http.get "https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=<%= ENV["GOOGLE_BOOKS_API_KEY"] %>"
-      .success (data, status, headers, config)->
-        console.log data
-      .error (data, status, headers, config)->
-        console.log status
-    return books
-
-  #GoogleBooks()
-  # Return nothing
-  return
-
+    self.googleBooks = ->
+      books = $http.get "https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=<%= ENV["GOOGLE_BOOKS_API_KEY"] %>"
+        .success (data, status, headers, config)->
+          console.log data
+        .error (data, status, headers, config)->
+          console.log status
 angular
   .module 'app'
   .controller 'MainController', MainController

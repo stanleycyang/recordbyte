@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'privacy' => 'home#privacy'
 
   # Users
-  resources :users, except: :new
+  resources :users, except: [:new, :show, :edit, :update, :destroy]
   # Account activation
   resources :account_activations, only: [:edit]
   # Password resets
@@ -25,8 +25,14 @@ Rails.application.routes.draw do
 
   # API Layer
   namespace :api, defaults: {format: :json}, constraints: {subdomain: 'api'}, path: '/' do
+    namespace :v1 do
       # Token Authenthentication
       post '/authenticate' => 'authentication#sign_in'
+      resources :books, except: [:new, :edit]
+      resources :reviews, except: [:new, :edit]
+      resources :comments, except: [:new, :edit]
+      resources :users, only: [:update, :show, :destroy]
+    end
   end
 
 end

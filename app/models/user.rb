@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_one :api_key, dependent: :destroy
+  has_many :reviews
+  has_many :books, through: :reviews
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -67,6 +69,10 @@ class User < ActiveRecord::Base
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def self.find_by_access_token(access_token)
+    APIKey.find_by(access_token: access_token).user
   end
 
   private

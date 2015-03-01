@@ -1,8 +1,8 @@
 FactoryGirl.define do
-  factory :comment do
+  factory :review do
     body "MyString"
-review nil
 user nil
+book nil
   end
 
 end

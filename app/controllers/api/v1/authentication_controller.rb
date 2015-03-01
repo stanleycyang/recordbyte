@@ -1,6 +1,7 @@
 module API
   class AuthenticationController < ApplicationController
-    respond_to :json
+   protect_from_forgery with: :null_session
+   respond_to :json
 
     def sign_in
       user = User.find_by(email: params[:email])

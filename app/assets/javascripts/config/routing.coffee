@@ -15,7 +15,7 @@ class config
           controller: 'UsersController'
           controllerAs: 'user'
       .state 'settings',
-          url: '/settings'
+          url: '/settings/:id'
           title: 'Edit user'
           templateUrl: 'settings.html'
           controller: 'UsersController'
