@@ -1,0 +1,22 @@
+<div class="container-fluid" id="setting">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <h2>Settings</h2>
+      <small>Update your personal information</small>
+      <br />
+      <br />
+      <form name="settings" ng-submit="users.update()" novalidate>
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Full name"  />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email address"/>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="Password" />
+        </div>
+        <button type="submit" ng-disabled="settings.$invalid" class="btn btn-primary btn-lg btn-block">Update!</button>
+      </form>
+    </div>
+  </div>
+</div>

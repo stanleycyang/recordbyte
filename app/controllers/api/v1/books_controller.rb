@@ -1,7 +1,5 @@
 class API::V1::BooksController < ApplicationController
 
-  protect_from_forgery with: :null_session
-
   respond_to :json, :html, :xml
 
   before_action :restrict_access
@@ -41,6 +39,6 @@ class API::V1::BooksController < ApplicationController
   private
 
     def book_params
-      params.require(:book).permit(:author, :title, :isbn13, :published_date, :thumbnail, :description)
+      params.require(:book).permit({:author => []}, :title, :isbn13, :published_date, :thumbnail, :description)
     end
 end

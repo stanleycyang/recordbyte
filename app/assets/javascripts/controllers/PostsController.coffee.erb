@@ -1,5 +1,5 @@
 class PostsController
-  constructor: ($http)->
+  constructor: ($http, $timeout, ResourceFactory)->
     self = @
 
     # Define rating
@@ -7,15 +7,123 @@ class PostsController
     self.max = 5
     self.isReadonly = false
 
+    # Success message
+    self.success = false
+
+    # Define book query functionality
+    inputChangedPromise = null
+
+    # Resource for Reviews CRUD
+    Review  = new ResourceFactory 'reviews'
+
+    # Resource for Book CRUD
+    Book = new ResourceFactory 'books'
+
+    # Define when the search dropdown should open
+    self.searchOpen = true
+
+    # Showing the star messages
     self.scoreMessage = (number)->
       if self.rate is number
         return true
       else
         return false
 
+    # When stars are hovered over
     self.hoveringOver = (value)->
+      self.hovered = true
       self.overStar = value
-      self.percent = 100 * (value / self.max)
+
+    sendQuery = ->
+      # Utilize Google Books API
+      promise = $http.get "https://www.googleapis.com/books/v1/volumes?q=" + self.title  + "&key=<%= ENV["GOOGLE_BOOKS_API_KEY"] %>"
+          .success (data, status, headers, config)->
+            return data
+          .error (data, status, headers, config)->
+            return {"status": false}
+      return promise
+
+    giveResults = ->
+      # Send the request and populate the books dropdown in search
+      sendQuery().then (promise)->
+        self.books = promise
+
+
+    self.getBooks = ->
+      # Clear the success message
+      self.success = false
+      # Set the Google API books back to null
+      self.books = null
+      self.searchOpen = true
+      # Set timeout to run the GET when the user stops typing
+      if inputChangedPromise
+        $timeout.cancel inputChangedPromise
+      inputChangedPromise = $timeout giveResults, 1000
+
+    # Set the attributes to be stored into the database
+    setAttributes = (index)->
+      self.title = self.books.data.items[index].volumeInfo.title
+      self.author = self.books.data.items[index].volumeInfo.authors
+      self.isbn13 = self.books.data.items[index].volumeInfo.industryIdentifiers[0].identifier
+      self.published_date = self.books.data.items[index].volumeInfo.publishedDate
+      self.thumbnail = self.books.data.items[index].volumeInfo.imageLinks.thumbnail
+      self.description = self.books.data.items[index].volumeInfo.description
+
+      self.bookObj =
+        title: self.title
+        author: self.author
+        isbn13: self.isbn13
+        published_date: self.published_date
+        thumbnail: self.thumbnail
+        description: self.description
+
+      #console.log self.title
+      #console.log self.author
+      #console.log self.isbn13
+      #console.log self.published_date
+      #console.log self.thumbnail
+      #console.log self.description
+      #console.log self.bookObj
+
+
+    # When the choice is clicked
+    self.clickBook = (index)->
+      setAttributes index
+      self.searchOpen = false
+
+
+    # When a person leaves without picking a book
+    self.blurTitle = ->
+
+    # Handle post CRUD
+
+    # Index
+    self.index = Book.query()
+
+    self.submit = ->
+      Book.save self.bookObj, (data, headers, status)->
+#        console.log data.id
+         # Construct reviewObj
+         reviewObj =
+           book_id: data.id
+           body: self.review
+           stars: self.rate
+
+         console.log reviewObj
+
+         # Post into the reviews API
+         Review.save reviewObj, (data, headers, status)->
+           console.log data
+
+           # Successfully posted into the database
+           # Show success message
+           self.success = true
+
+           # Erase all the current post info
+           self.title = null
+           self.rate = 1
+           self.review = null
+
 
 angular
   .module 'app'

@@ -1,0 +1,24 @@
+class ResourceFactory
+  constructor: ($resource, ipCookie)->
+
+    self = @
+    accessToken = ipCookie 'token'
+
+    self.service = (type)->
+      $resource 'http://api.recordbyte.dev:3000/v1/' + type + '/:id',
+          id: '@id'
+          access_token: accessToken
+        ,
+          query:
+            method: 'GET'
+            isArray: true
+        ,
+          update:
+            method: 'PUT'
+
+    return self.service
+
+angular
+  .module 'app'
+  .factory 'ResourceFactory', ResourceFactory
+

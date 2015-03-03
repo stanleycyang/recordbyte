@@ -1,16 +1,32 @@
 <div class="container-fluid" id="book-review">
   <div class="row-fluid">
     <div class="col-md-offset-3 col-md-6">
+    <div class="alert alert-success" ng-show="post.success">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        <span class="sr-only">Success:</span>
+        <strong>Your review has been posted</strong>
+    </div>
     <h2>Review a book:</h2>
     <br />
     <!--novalidate prevents HTML5 validations-->
-    <form name="reviewForm" ng-submit="post.submit" novalidate>
+    <form name="reviewForm" ng-submit="post.submit()" novalidate>
       <div class="form-group">
-        <input type="text" autofocus="true" ng-maxlength="140" maxlength="140" name="title" class="form-control" ng-model="post.title" placeholder="Enter book title or ISBN" ng-required="true" required />
-        <div class="book-results" ng-show="reviewForm.title.$valid && !reviewForm.title.$pristine">
-          
+        <input type="text" autocomplete="off" autofocus="true" ng-maxlength="140" maxlength="140" name="title" class="form-control" ng-model="post.title" placeholder="Enter book title or ISBN" ng-change="post.getBooks()" ng-required="true" ng-blur="post.blurTitle()" required />
+        <div class="book-results" ng-show="reviewForm.title.$valid && !reviewForm.title.$pristine && post.searchOpen">
+          <div class="row" ng-show="!post.books">
+            <div id="loader">
+            </div>
+          </div>
+          <div ng-show="post.books">
+            <ul class="books-queried">
+              <li ng-repeat="book in post.books.data.items track by $index" ng-click="post.clickBook($index)">
+              <strong>{{book.volumeInfo.title}}</strong>
+              <small ng-if="book.volumeInfo.authors"> by: <span ng-repeat="author in book.volumeInfo.authors">{{author}}<span ng-show="!$last">, </span></span></small>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="alert alert-info" ng-show="reviewForm.title.$invalid && !reviewForm.title.$pristine" role="alert">
+        <div class="alert alert-info" ng-show="reviewForm.title.$invalid && !reviewForm.title.$pristine && post.success !== true" role="alert">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
           <span class="sr-only">Error:</span>
               Please enter a title or ISBN
@@ -28,7 +44,7 @@
       </div>
       <div class="form-group">
         <textarea auto-grow ng-minlength="1" ng-trim="false" ng-maxlength="250" maxlength="250" name="review" ng-model="post.review" class="form-control" placeholder="Write your book review.." ng-required="true" required></textarea>
-        <!--<span class="pull-right">Characters left: {{250 - post.review.length}}</span>-->
+        <small class="pull-right">Characters left: {{250 - post.review.length}}</small>
       </div>
       <button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="reviewForm.$invalid"><strong>Add review!</strong></button>
     </form>

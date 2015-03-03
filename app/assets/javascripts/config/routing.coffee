@@ -9,6 +9,8 @@ class config
           url: '/'
           title: 'Recordbyte'
           templateUrl: 'home.html'
+          controller: 'PostsController'
+          controllerAs: 'post'
       .state 'profile',
           url: '/users/:id'
           templateUrl: 'profile.html'
@@ -22,7 +24,7 @@ class config
           controllerAs: 'user'
       .state 'post',
           url: '/post'
-          title: 'Write a book review'
+          title: 'Write a review'
           templateUrl: 'post.html'
           controller: 'PostsController'
           controllerAs: 'post'

@@ -89,6 +89,21 @@ $header-height: 80px;
   box-shadow: 2px 2px 5px 0px #ccc;
   @extend .max-width;
 }
+.books-queried
+{
+  list-style-type: none;
+  padding: 0;
+  li
+  {
+    padding: 10px 0 0 14px;
+    font-size: 1.1em;
+    cursor: pointer;
+    &:hover
+    {
+      background-color: #E6E6E6;
+    }
+  }
+}
 
 // Form for login and signup
 .entry-form
@@ -185,28 +200,34 @@ header
   {
     color: $font-black-color;
     position: absolute;
-    &:nth-child(2)
-    {
-      right: 100px;
-      top: 17px;
-      font-size: 1.2em;
-    }
   }
 
-
+  .glyphicon
+  {
+    font-size: 1.5em;
+  }
   .glyphicon-bookmark
   {
     margin-left: 15px;
-    font-size: 1.5em;
     top: 18px;
   }
 
+  .glyphicon-edit
+  {
+    position: absolute;
+    right: 98px;
+    top: 19px;
+  }
   .glyphicon-menu-hamburger
   {
     position: absolute;
-    font-size: 1.5em;
     right: 45px;
     top: 20px;
+  }
+  #username
+  {
+    right: 148px;
+    top: 19px;
   }
 
 }
@@ -267,7 +288,15 @@ footer
 }
 
 // <=== Ids ===>
-
+#loader
+{
+  width: 35px;
+  height: 35px;
+  background: url(loading.gif);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  margin: 6px auto;
+}
 div#intro
 {
   h1
@@ -335,4 +364,18 @@ div#intro
     top: -8px;
     left: 10px;
   }
+}
+#header-login
+{
+  right: 100px;
+  top: 17px;
+  font-size: 1.2em;
+}
+#setting
+{
+  margin-top: 110px;
+}
+#profile-page
+{
+  margin-top: 80px;
 }

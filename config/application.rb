@@ -19,6 +19,13 @@ module Recordbyte
     config.sass.load_paths << bower_path
     config.assets.paths << bower_path
   end
+  # Required for Cross-domain scripting
+  config.action_dispatch.default_headers.merge!({
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Request-Method' => '*',
+    'Access-Control-Allow-Methods' => 'GET, POST, OPTIONS, DELETE, PUT',
+    'Access-Control-Allow-Headers' => 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+  })
   # Precompile Bootstrap fonts
   config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
   # Minimum Sass number precision required by bootstrap-sass

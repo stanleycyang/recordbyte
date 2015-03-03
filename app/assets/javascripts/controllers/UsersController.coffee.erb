@@ -1,4 +1,27 @@
-UsersController = ()->
+class UsersController
+  constructor: ($rootScope, $stateParams, ResourceFactory)->
+
+    self = @
+
+
+    # Resource for users
+    User = new ResourceFactory 'users'
+
+    # Getting the user id
+    userId = $stateParams.id
+
+    # User CRUD
+
+    # Show
+    if $stateParams.id
+      self.show = User.get
+        id: userId
+
+      self.show.$promise.then (result)->
+        $rootScope.title = result.name
+
+
+
 
 angular
   .module 'app'

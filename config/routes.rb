@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # CORS
+  match '*all' => 'application#handle_options', via: :options
+
   # Root
   root 'home#index'
 

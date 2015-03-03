@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   include SessionsHelper
+
+  # CORS
+  def handle_options
+    head(:ok) if request.request_method == "OPTIONS"
+  end
 
   # Removes the root node on serializers
   def default_serializer_options

@@ -1,0 +1,17 @@
+<div class="container-fluid" id="profile-page">
+  <div class="row">
+    <div class="col-md-4">
+      {{user.show.name}}
+      {{user.show.reviews.length}}
+    </div>
+    <div class="col-md-8">
+      <div ng-repeat="review in user.show.reviews" class="row user-reviews">
+        <div class="col-md-3">
+          <img src="{{review.book.thumbnail}}" class="thumbnails" />
+        </div>
+        <h3>{{review.book.title}}</h3>
+        {{review.body}}
+      </div>
+    </div>
+  </div>
+</div>
