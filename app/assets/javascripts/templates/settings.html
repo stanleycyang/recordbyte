@@ -5,7 +5,7 @@
       <small>Update your personal information</small>
       <br />
       <br />
-      <form name="settings" ng-submit="users.update()" novalidate>
+      <form class="row-fluid" name="settings" ng-submit="user.patch()" novalidate>
         <div class="form-group">
           <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Full name"  />
         </div>
@@ -17,6 +17,14 @@
         </div>
         <button type="submit" ng-disabled="settings.$invalid" class="btn btn-primary btn-lg btn-block">Update!</button>
       </form>
+      <div class="row-fluid">
+        <br />
+        <h3>Terminate account</h3>
+        <br />
+        <button class="btn btn-block btn-sm" ng-click="user.destroy()">Delete your account</button>
+        <br />
+        <small>Note: all your information will be lost if you choose to delete your account.</small><br /><br />
+      </div>
     </div>
   </div>
 </div>

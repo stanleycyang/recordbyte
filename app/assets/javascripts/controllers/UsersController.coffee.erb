@@ -1,5 +1,5 @@
 class UsersController
-  constructor: ($rootScope, $stateParams, ResourceFactory)->
+  constructor: ($rootScope, $stateParams, ResourceFactory, ipCookie)->
 
     self = @
 
@@ -20,6 +20,25 @@ class UsersController
       self.show.$promise.then (result)->
         $rootScope.title = result.name
 
+    # Put/Patch
+
+    self.patch = ->
+      console.log self.name
+      console.log self.email
+      console.log self.password
+
+      <%#update = User.update({id: 1, name: self.name})%>
+
+
+    # Destroy
+
+    self.destroy = ->
+      remove = User.delete
+        id: 1
+      remove.$promise.then ->
+        # Once delete, remove the token and log them out
+        ipCookie.remove 'token'
+        location.reload()
 
 
 

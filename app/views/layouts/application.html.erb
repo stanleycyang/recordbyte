@@ -21,8 +21,9 @@
   <div class="container-fluid" ng-click="main.pushmenu = false">
 
     <%= yield %>
-
-    <%= render "shared/footer" %>
+    <% if !logged_in? %>
+      <%= render "shared/footer" %>
+    <% end %>
   </div>
 
 

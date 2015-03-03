@@ -1,17 +1,32 @@
 <div class="container-fluid" id="profile-page">
   <div class="row">
-    <div class="col-md-4">
-      {{user.show.name}}
-      {{user.show.reviews.length}}
+    <div id="user-info" class="col-md-2 hidden-sm hidden-xs">
+      <h3><a class="name" href="#/users/{{user.show.id}}">{{user.show.name}}</a></h3>
+      <h4>Reviews: {{user.show.reviews.length}}</h4>
     </div>
-    <div class="col-md-8">
-      <div ng-repeat="review in user.show.reviews" class="row user-reviews">
-        <div class="col-md-3">
-          <img src="{{review.book.thumbnail}}" class="thumbnails" />
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row text-center" ng-show="user.show.reviews == 0" id="no-post">
+        <div class="col-xs-12" class="text-center">
+          <strong><span class="glyphicon glyphicon-pushpin"></span> No reviews to show... </strong>
+          <strong><a href="#/post">Review something!</a></strong>
         </div>
-        <h3>{{review.book.title}}</h3>
-        {{review.body}}
+      </div>
+      <div ng-repeat="review in user.show.reviews | filter:search:strict" class="row user-reviews">
+        <div class="col-xs-3">
+          <a href="{{review.book.thumbnail}}">
+            <img src="{{review.book.thumbnail}}" class="img-responsive thumbnails" />
+          </a>
+        </div>
+        <div class="col-xs-9">
+          <span class="glyphicon glyphicon-remove"></span>
+          <span><a class="name" href="#/users/{{user.show.id}}">{{user.show.name}}</a> reviewed: </span>
+          <h3 class="titles">{{review.book.title}}<small> by <span ng-repeat="author in review.book.author">{{author}}<span ng-show="!$last">, </span></span></small></h3>
+          <rating ng-model="review.stars" max="5" readonly="true"></rating>
+          <p class="reviews">{{review.body}}</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<filter></filter>

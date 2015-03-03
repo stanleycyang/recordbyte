@@ -35,6 +35,18 @@ $header-height: 80px;
 
 // <=== Classes ===>
 
+// Stars
+.glyphicon-star-empty
+{
+  font-size: 2.8em;
+  color: #D8D8D8;
+}
+.glyphicon-star
+{
+  font-size: 2.8em;
+  color: #FFBF00;
+}
+
 // Layers
 
 .top-layer
@@ -347,16 +359,7 @@ div#intro
   {
     height: 90px;
   }
-  .glyphicon-star-empty
-  {
-    font-size: 2.8em;
-    color: #D8D8D8;
-  }
-  .glyphicon-star
-  {
-    font-size: 2.8em;
-    color: #FFBF00;
-  }
+
   .score
   {
     font-size: 1.6em;
@@ -377,5 +380,85 @@ div#intro
 }
 #profile-page
 {
-  margin-top: 80px;
+  margin-top: 40px;
+  padding-bottom: 140px;
+  #user-info
+  {
+    margin-top: 35px;
+    height: 100px;
+    position: fixed;
+    background-color: #FFF;
+    /*box-shadow: 1px 3px 5px 3px #ccc;*/
+  }
+}
+#no-post
+{
+  /*box-shadow: 1px 3px 5px 3px #ccc;*/
+  margin: 35px 0;
+  padding: 34px;
+  font-size: 1.5em;
+  background-color: #fff;
+}
+#search
+{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  opacity: 0.9;
+  .input-group
+  {
+    width: 80%;
+    margin: 10px auto;
+    .input-group-addon
+    {
+      border: none;
+      background-color: #fff;
+      font-size: 20px;
+    }
+    input
+    {
+      font-weight: bold;
+      outline: none;
+      color: black;
+      font-size: 20px;
+      height: 60px;
+      border: none;
+      background: none;
+      @extend .top-layer;
+    }
+  }
+}
+.user-reviews
+{
+  background-color: #FFF;
+  /*box-shadow: 1px 3px 5px 3px #ccc;*/
+  padding: 30px 10px;
+  margin: 35px 0;
+  .glyphicon-remove
+  {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+  }
+  .thumbnails
+  {
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
+  }
+  .name
+  {
+    font-weight: bold;
+  }
+  .titles
+  {
+    font-weight: bold;
+  }
+  .reviews
+  {
+    margin-top: 10px;
+    font-size: 1.1em;
+  }
 }
