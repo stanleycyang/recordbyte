@@ -27,7 +27,10 @@ class UsersController
       console.log self.email
       console.log self.password
 
-      <%#update = User.update({id: 1, name: self.name})%>
+      update = User.update()
+
+      update.$promise.then ->
+        console.log 'success!'
 
 
     # Destroy

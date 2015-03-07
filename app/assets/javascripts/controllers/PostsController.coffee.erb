@@ -96,13 +96,13 @@ class PostsController
     self.blurTitle = ->
 
     # Handle post CRUD
+    self.getAll = Review.query()
 
     # Index
     self.index = Book.query()
 
     self.submit = ->
       Book.save self.bookObj, (data, headers, status)->
-#        console.log data.id
          # Construct reviewObj
          reviewObj =
            book_id: data.id

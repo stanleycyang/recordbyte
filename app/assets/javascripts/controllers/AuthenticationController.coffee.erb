@@ -6,14 +6,21 @@ class AuthenticationController
     setCookie = (token)->
       ipCookie 'token', token, {expires: 30}
 
+    setId = (id)->
+      # Set sessionStorage
+      if id
+        if !window.sessionStorage.getItem 'user_id'
+          window.sessionStorage.setItem 'user_id', id
+
     self.removeCookie = ->
       ipCookie.remove 'token'
 
     # Set the cookie in the page
-    self.cookie = (token)->
+    self.init = (token, id)->
       # Check if the id exists (rails session still lives)
       if token
         setCookie token
+        setId id
       else
         self.removeCookie()
 

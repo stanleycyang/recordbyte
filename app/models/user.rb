@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_one :api_key, dependent: :destroy
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :books, through: :reviews
 
   attr_accessor :remember_token, :activation_token, :reset_token

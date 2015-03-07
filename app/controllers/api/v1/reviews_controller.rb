@@ -6,7 +6,7 @@ class API::V1::ReviewsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    respond_with Review.all, default_serializer_options
+    respond_with Review.all
   end
 
   def show

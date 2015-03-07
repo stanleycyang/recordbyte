@@ -7,6 +7,7 @@
     <% if logged_in? %>
       <a href="/home/#/" class="glyphicon glyphicon-bookmark"></a>
       <%= link_to current_user.name, "#/users/#{current_user.id}", class: 'hidden-xs', id: "username" %>
+      <a href="/home/#/" class="glyphicon glyphicon-home"></a>
       <a href="/home/#/post" class="glyphicon glyphicon-edit"></a>
       <!--
          -<a class="glyphicon glyphicon-edit"><a>

@@ -171,7 +171,7 @@ body
 {
   position: relative;
   left: 0;
-  transition: left .5s ease;
+  transition: left .4s ease;
 }
 
 a
@@ -194,7 +194,7 @@ header, footer
 {
   position: fixed;
   left: 0;
-  transition: left .5s ease;
+  transition: left .4s ease;
   @extend .top-layer;
   @extend .max-width;
   @extend .no-padding;
@@ -227,19 +227,27 @@ header
   .glyphicon-edit
   {
     position: absolute;
-    right: 98px;
+    right: 100px;
+    top: 19px;
+  }
+  .glyphicon-home
+  {
+    position: absolute;
+    right: 150px;
     top: 19px;
   }
   .glyphicon-menu-hamburger
   {
     position: absolute;
-    right: 45px;
+    right: 50px;
     top: 20px;
   }
   #username
   {
-    right: 148px;
+    right: 200px;
     top: 19px;
+    font-weight: bold;
+    font-size: 1.1em;
   }
 
 }
@@ -252,7 +260,7 @@ header
   top: 0;
   font-size: 0;
   font-weight: 100;
-  transition: width .5s, font .5s ease;
+  transition: width .4s, font .4s ease;
   @extend .max-height;
   @extend .top-layer;
   ul
@@ -376,7 +384,7 @@ div#intro
 }
 #setting
 {
-  margin-top: 110px;
+  margin-top: 90px;
 }
 #profile-page
 {

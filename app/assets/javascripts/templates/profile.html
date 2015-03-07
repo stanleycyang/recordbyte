@@ -18,7 +18,7 @@
           </a>
         </div>
         <div class="col-xs-9">
-          <span class="glyphicon glyphicon-remove"></span>
+          <!--<span class="glyphicon glyphicon-remove"></span>-->
           <span><a class="name" href="#/users/{{user.show.id}}">{{user.show.name}}</a> reviewed: </span>
           <h3 class="titles">{{review.book.title}}<small> by <span ng-repeat="author in review.book.author">{{author}}<span ng-show="!$last">, </span></span></small></h3>
           <rating ng-model="review.stars" max="5" readonly="true"></rating>
