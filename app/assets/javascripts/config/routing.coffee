@@ -8,7 +8,7 @@ class config
       .state 'home',
           url: '/'
           title: 'Recordbyte'
-          templateUrl: "<%= asset_path('home.html') %>"
+          templateUrl: 'home.html'
           controller: 'PostsController'
           controllerAs: 'post'
       .state 'profile',
