@@ -7,4 +7,8 @@ class ReviewSerializer < ActiveModel::Serializer
     return {id: object.user.id, name: object.user.name}
   end
 
+  def commenter
+    # When comments are built in
+  end
+
 end
